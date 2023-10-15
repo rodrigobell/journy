@@ -1,8 +1,8 @@
 //
 //  ContentView.swift
-//  journy
+//  Journy
 //
-//  Created by Rodrigo Bell on 10/14/23.
+//  Created by Rodrigo Bell on 10/15/23.
 //
 
 import SwiftUI

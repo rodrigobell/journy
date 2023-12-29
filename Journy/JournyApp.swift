@@ -3,16 +3,15 @@ import SwiftUI
 @main
 struct JournyApp: App {
 
-  @StateObject var model = PassionsModel()
+  @StateObject var model = PassionListViewModel()
   /// Used to detect when the app moves all scenes to the background, so we can trigger a save.
   @Environment(\.scenePhase) var scenePhase
   
     var body: some Scene {
       WindowGroup {
         NavigationView {
-          PassionListView()
+          PassionListView(model: model)
         }
-        .environmentObject(model)
       }
       .onChange(of: scenePhase) { phase in
         // When all our scenes have moved to the background, we force a save

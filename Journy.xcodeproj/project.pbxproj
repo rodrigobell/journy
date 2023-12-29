@@ -11,11 +11,17 @@
 		1A18A0612ADC62C9007DFE62 /* PassionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18A0602ADC62C9007DFE62 /* PassionListView.swift */; };
 		1A18A0632ADC62CA007DFE62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A18A0622ADC62CA007DFE62 /* Assets.xcassets */; };
 		1A18A0662ADC62CA007DFE62 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A18A0652ADC62CA007DFE62 /* Preview Assets.xcassets */; };
-		1A18A06D2ADC642F007DFE62 /* PassionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18A06C2ADC642F007DFE62 /* PassionsModel.swift */; };
+		1A18A06D2ADC642F007DFE62 /* PassionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18A06C2ADC642F007DFE62 /* PassionListViewModel.swift */; };
 		1A18A06F2ADC6456007DFE62 /* Passion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18A06E2ADC6456007DFE62 /* Passion.swift */; };
 		1A18A0712ADC68C4007DFE62 /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18A0702ADC68C4007DFE62 /* FileManagerExtensions.swift */; };
 		1A18A0732ADC69EE007DFE62 /* PassionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18A0722ADC69EE007DFE62 /* PassionRowView.swift */; };
 		1A18A0752ADC6B3C007DFE62 /* PassionRowView+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18A0742ADC6B3C007DFE62 /* PassionRowView+Preview.swift */; };
+		1A4081DC2B3D22A700DB2697 /* WaterfallGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 1A4081DB2B3D22A700DB2697 /* WaterfallGrid */; };
+		1A4081DE2B3D22CB00DB2697 /* PostGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4081DD2B3D22CB00DB2697 /* PostGridView.swift */; };
+		1A907EC02B3E03BA003B9BE1 /* PostGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A907EBF2B3E03BA003B9BE1 /* PostGridViewModel.swift */; };
+		1A907EC22B3E05F2003B9BE1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A907EC12B3E05F2003B9BE1 /* Post.swift */; };
+		1A907EC42B3E090B003B9BE1 /* PostCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A907EC32B3E090B003B9BE1 /* PostCellView.swift */; };
+		1A907EC62B3E1882003B9BE1 /* PostCellView+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A907EC52B3E1882003B9BE1 /* PostCellView+Preview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,11 +30,16 @@
 		1A18A0602ADC62C9007DFE62 /* PassionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassionListView.swift; sourceTree = "<group>"; };
 		1A18A0622ADC62CA007DFE62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A18A0652ADC62CA007DFE62 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		1A18A06C2ADC642F007DFE62 /* PassionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassionsModel.swift; sourceTree = "<group>"; };
+		1A18A06C2ADC642F007DFE62 /* PassionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassionListViewModel.swift; sourceTree = "<group>"; };
 		1A18A06E2ADC6456007DFE62 /* Passion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passion.swift; sourceTree = "<group>"; };
 		1A18A0702ADC68C4007DFE62 /* FileManagerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtensions.swift; sourceTree = "<group>"; };
 		1A18A0722ADC69EE007DFE62 /* PassionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassionRowView.swift; sourceTree = "<group>"; };
 		1A18A0742ADC6B3C007DFE62 /* PassionRowView+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PassionRowView+Preview.swift"; sourceTree = "<group>"; };
+		1A4081DD2B3D22CB00DB2697 /* PostGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridView.swift; sourceTree = "<group>"; };
+		1A907EBF2B3E03BA003B9BE1 /* PostGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridViewModel.swift; sourceTree = "<group>"; };
+		1A907EC12B3E05F2003B9BE1 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		1A907EC32B3E090B003B9BE1 /* PostCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellView.swift; sourceTree = "<group>"; };
+		1A907EC52B3E1882003B9BE1 /* PostCellView+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostCellView+Preview.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A4081DC2B3D22A700DB2697 /* WaterfallGrid in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,10 +74,9 @@
 			isa = PBXGroup;
 			children = (
 				1A18A05E2ADC62C9007DFE62 /* JournyApp.swift */,
-				1A18A0602ADC62C9007DFE62 /* PassionListView.swift */,
-				1A18A0722ADC69EE007DFE62 /* PassionRowView.swift */,
-				1A18A06C2ADC642F007DFE62 /* PassionsModel.swift */,
-				1A18A06E2ADC6456007DFE62 /* Passion.swift */,
+				1A907EBC2B3E0342003B9BE1 /* Passion */,
+				1A907EBD2B3E0354003B9BE1 /* Post */,
+				1A907EBE2B3E0369003B9BE1 /* Model */,
 				1A18A0702ADC68C4007DFE62 /* FileManagerExtensions.swift */,
 				1A18A0622ADC62CA007DFE62 /* Assets.xcassets */,
 				1A18A0642ADC62CA007DFE62 /* Preview Content */,
@@ -78,8 +89,38 @@
 			children = (
 				1A18A0652ADC62CA007DFE62 /* Preview Assets.xcassets */,
 				1A18A0742ADC6B3C007DFE62 /* PassionRowView+Preview.swift */,
+				1A907EC52B3E1882003B9BE1 /* PostCellView+Preview.swift */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1A907EBC2B3E0342003B9BE1 /* Passion */ = {
+			isa = PBXGroup;
+			children = (
+				1A18A0602ADC62C9007DFE62 /* PassionListView.swift */,
+				1A18A06C2ADC642F007DFE62 /* PassionListViewModel.swift */,
+				1A18A0722ADC69EE007DFE62 /* PassionRowView.swift */,
+			);
+			path = Passion;
+			sourceTree = "<group>";
+		};
+		1A907EBD2B3E0354003B9BE1 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				1A4081DD2B3D22CB00DB2697 /* PostGridView.swift */,
+				1A907EBF2B3E03BA003B9BE1 /* PostGridViewModel.swift */,
+				1A907EC32B3E090B003B9BE1 /* PostCellView.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		1A907EBE2B3E0369003B9BE1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1A18A06E2ADC6456007DFE62 /* Passion.swift */,
+				1A907EC12B3E05F2003B9BE1 /* Post.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +139,9 @@
 			dependencies = (
 			);
 			name = Journy;
+			packageProductDependencies = (
+				1A4081DB2B3D22A700DB2697 /* WaterfallGrid */,
+			);
 			productName = Journy;
 			productReference = 1A18A05B2ADC62C9007DFE62 /* Journy.app */;
 			productType = "com.apple.product-type.application";
@@ -126,6 +170,9 @@
 				Base,
 			);
 			mainGroup = 1A18A0522ADC62C9007DFE62;
+			packageReferences = (
+				1A4081DA2B3D22A700DB2697 /* XCRemoteSwiftPackageReference "WaterfallGrid" */,
+			);
 			productRefGroup = 1A18A05C2ADC62C9007DFE62 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,13 +199,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A18A06D2ADC642F007DFE62 /* PassionsModel.swift in Sources */,
+				1A907EC22B3E05F2003B9BE1 /* Post.swift in Sources */,
+				1A18A06D2ADC642F007DFE62 /* PassionListViewModel.swift in Sources */,
 				1A18A06F2ADC6456007DFE62 /* Passion.swift in Sources */,
+				1A907EC62B3E1882003B9BE1 /* PostCellView+Preview.swift in Sources */,
 				1A18A0612ADC62C9007DFE62 /* PassionListView.swift in Sources */,
 				1A18A0712ADC68C4007DFE62 /* FileManagerExtensions.swift in Sources */,
+				1A907EC02B3E03BA003B9BE1 /* PostGridViewModel.swift in Sources */,
 				1A18A0732ADC69EE007DFE62 /* PassionRowView.swift in Sources */,
+				1A4081DE2B3D22CB00DB2697 /* PostGridView.swift in Sources */,
 				1A18A05F2ADC62C9007DFE62 /* JournyApp.swift in Sources */,
 				1A18A0752ADC6B3C007DFE62 /* PassionRowView+Preview.swift in Sources */,
+				1A907EC42B3E090B003B9BE1 /* PostCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +414,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1A4081DA2B3D22A700DB2697 /* XCRemoteSwiftPackageReference "WaterfallGrid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/paololeonardi/WaterfallGrid";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1A4081DB2B3D22A700DB2697 /* WaterfallGrid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A4081DA2B3D22A700DB2697 /* XCRemoteSwiftPackageReference "WaterfallGrid" */;
+			productName = WaterfallGrid;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1A18A0532ADC62C9007DFE62 /* Project object */;
 }

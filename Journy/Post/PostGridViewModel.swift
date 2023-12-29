@@ -34,9 +34,8 @@ class PostGridViewModel: ObservableObject {
     }
   }
   
-  func add() {
-    let newItem = Post()
-    posts.append(newItem)
+  func add(post: Post) {
+    posts.append(post)
   }
   
   func delete(_ offsets: IndexSet) {

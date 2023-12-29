@@ -3,6 +3,7 @@ import WaterfallGrid
 
 struct PostGridView: View {
   @ObservedObject var model: PostGridViewModel
+  @State private var showingCreatePostPopover = false
   
   var body: some View {
     ScrollView(.vertical, showsIndicators: false) {
@@ -17,11 +18,14 @@ struct PostGridView: View {
       )
       .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
     }
-    .navigationTitle("Passion name")
+    .navigationTitle(model.passion.title)
     .toolbar {
       ToolbarItem(placement: .navigationBarTrailing) {
-        Button(action: model.add) {
-          Label("Add Item", systemImage: "plus")
+        Button("", systemImage: "plus") {
+          showingCreatePostPopover = true
+        }
+        .sheet(isPresented: $showingCreatePostPopover) {
+          CreatePostPopoverView(model: model)
         }
       }
     }

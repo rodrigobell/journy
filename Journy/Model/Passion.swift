@@ -1,10 +1,8 @@
 import Foundation
 
 struct Passion: Codable, Identifiable, Hashable {
-
   var id = UUID()
   var title = "New Passion"
-
 }
 
 extension Passion: Equatable {

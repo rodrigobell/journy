@@ -22,6 +22,7 @@
 		1A907EC22B3E05F2003B9BE1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A907EC12B3E05F2003B9BE1 /* Post.swift */; };
 		1A907EC42B3E090B003B9BE1 /* PostCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A907EC32B3E090B003B9BE1 /* PostCellView.swift */; };
 		1A907EC62B3E1882003B9BE1 /* PostCellView+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A907EC52B3E1882003B9BE1 /* PostCellView+Preview.swift */; };
+		1A907EC82B3E9ADD003B9BE1 /* CreatePostPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A907EC72B3E9ADD003B9BE1 /* CreatePostPopoverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		1A907EC12B3E05F2003B9BE1 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		1A907EC32B3E090B003B9BE1 /* PostCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellView.swift; sourceTree = "<group>"; };
 		1A907EC52B3E1882003B9BE1 /* PostCellView+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostCellView+Preview.swift"; sourceTree = "<group>"; };
+		1A907EC72B3E9ADD003B9BE1 /* CreatePostPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostPopoverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				1A4081DD2B3D22CB00DB2697 /* PostGridView.swift */,
 				1A907EBF2B3E03BA003B9BE1 /* PostGridViewModel.swift */,
 				1A907EC32B3E090B003B9BE1 /* PostCellView.swift */,
+				1A907EC72B3E9ADD003B9BE1 /* CreatePostPopoverView.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				1A907EC22B3E05F2003B9BE1 /* Post.swift in Sources */,
 				1A18A06D2ADC642F007DFE62 /* PassionListViewModel.swift in Sources */,
 				1A18A06F2ADC6456007DFE62 /* Passion.swift in Sources */,
+				1A907EC82B3E9ADD003B9BE1 /* CreatePostPopoverView.swift in Sources */,
 				1A907EC62B3E1882003B9BE1 /* PostCellView+Preview.swift in Sources */,
 				1A18A0612ADC62C9007DFE62 /* PassionListView.swift in Sources */,
 				1A18A0712ADC68C4007DFE62 /* FileManagerExtensions.swift in Sources */,

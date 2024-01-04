@@ -3,6 +3,7 @@ import Foundation
 
 class PostGridViewModel: ObservableObject {
   let passion: Passion
+  var deleted = false
   @Published var posts: [Post]
   private var savePath: URL
   private var saveSubscription: AnyCancellable?
@@ -26,7 +27,11 @@ class PostGridViewModel: ObservableObject {
   }
   
   func save() {
+    if self.deleted {
+      return
+    }
     do {
+      print("Write " + savePath.relativeString)
       let data = try JSONEncoder().encode(posts)
       try data.write(to: savePath, options: [.atomic, .completeFileProtection])
     } catch {
@@ -36,9 +41,12 @@ class PostGridViewModel: ObservableObject {
   
   func add(post: Post) {
     posts.append(post)
+    posts.sort(by: { $0.date.compare($1.date) == .orderedDescending})
+    save()
   }
   
-  func delete(_ offsets: IndexSet) {
-    posts.remove(atOffsets: offsets)
+  func delete(post: Post) {
+    posts.remove(object: post)
+    save()
   }
 }

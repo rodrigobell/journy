@@ -27,6 +27,27 @@ struct PassionRowView: View {
             }
           }
       }
+    } else {
+      NavigationLink {
+        PostGridView(model: PostGridViewModel(passion: passion))
+      } label: {
+        TextField("", text: $passion.title)
+          .disabled(isDisabled)
+          .focused($isFocused)
+          .contextMenu {
+            Button {
+              isDisabled = false
+              isFocused = true
+            } label: {
+              Text("Change name")
+            }
+          }
+          .onChange(of: isFocused) { isFocused in
+            if !isFocused {
+              isDisabled = true
+            }
+          }
+      }
     }
   }
 }

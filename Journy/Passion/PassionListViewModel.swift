@@ -8,6 +8,7 @@ class PassionListViewModel: ObservableObject {
   
   init() {
     do {
+      let docsPath = FileManager.documentsDirectory
       let data = try Data(contentsOf: savePath)
       passions = try JSONDecoder().decode([Passion].self, from: data)
     } catch {
@@ -24,6 +25,7 @@ class PassionListViewModel: ObservableObject {
   
   func save() {
     do {
+      print("Write " + savePath.relativeString)
       let data = try JSONEncoder().encode(passions)
       try data.write(to: savePath, options: [.atomic, .completeFileProtection])
     } catch {
@@ -34,9 +36,11 @@ class PassionListViewModel: ObservableObject {
   func add() {
     let newItem = Passion()
     passions.append(newItem)
+    save()
   }
 
   func delete(_ offsets: IndexSet) {
     passions.remove(atOffsets: offsets)
+    save()
   }
 }

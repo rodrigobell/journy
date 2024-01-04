@@ -9,12 +9,19 @@ struct PostGridView: View {
     ScrollView(.vertical, showsIndicators: false) {
       WaterfallGrid(model.posts) { post in
         PostCellView(post: post)
+          .fixedSize(horizontal: false, vertical: true)
+          .contextMenu {
+            Button {
+              model.delete(post: post)
+            } label: {
+              Text("Delete")
+            }
+          }
       }
       .gridStyle(
         columnsInPortrait: 2,
         columnsInLandscape: 3,
-        spacing: 8,
-        animation: .none
+        spacing: 8
       )
       .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
     }
@@ -37,6 +44,10 @@ struct PostGridView: View {
 
 #Preview {
   NavigationStack {
-    PostGridView(model: PostGridViewModel(passion: .example))
+    var model = PostGridViewModel(passion: .example)
+    var post = Post()
+    post.caption = "This is a caption for a post"
+    model.add(post: post)
+    return PostGridView(model: model)
   }
 }

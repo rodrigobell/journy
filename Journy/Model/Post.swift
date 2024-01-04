@@ -7,6 +7,7 @@ enum PostType: String, Codable, CaseIterable {
 struct Post: Codable, Identifiable, Hashable {
   var id = UUID()
   var type = PostType.text
+  var date = Date.now
   var caption = ""
   var imageData: Data? = nil
 }

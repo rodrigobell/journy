@@ -7,11 +7,16 @@ struct CreatePostPopoverView: View {
   @State private var caption: String = ""
   @State private var selectedItem: PhotosPickerItem? = nil
   @State private var imageData: Data? = nil
+  @State private var date = Date.now
   @Environment(\.dismiss) var dismiss
   
   var body: some View {
     NavigationView {
       ScrollView(.vertical, showsIndicators: false) {
+        DatePicker("", selection: $date, displayedComponents: .date)
+          .labelsHidden()
+          .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+        
         TextField("Caption", text: $caption)
           .padding()
         
@@ -19,7 +24,7 @@ struct CreatePostPopoverView: View {
           selection: $selectedItem,
           matching: .images,
           photoLibrary: .shared()) {
-            Text("Select a photo (optional)")
+            Text("Upload photo")
           }
           .onChange(of: selectedItem) { newItem in
             Task {
@@ -33,6 +38,7 @@ struct CreatePostPopoverView: View {
           Image(uiImage: uiImage)
             .resizable()
             .scaledToFit()
+            .cornerRadius(12)
             .frame(width: 250, height: 250)
         }
       }
@@ -50,10 +56,11 @@ struct CreatePostPopoverView: View {
               newPost.type = .photo
               newPost.imageData = imageData
             }
+            newPost.date = date
             model.add(post: newPost)
             dismiss()
           }
-          .disabled(caption.isEmpty)
+          .disabled(caption.isEmpty && imageData == nil)
         }
       }
     }

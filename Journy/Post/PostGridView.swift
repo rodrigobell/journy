@@ -2,7 +2,7 @@ import SwiftUI
 import WaterfallGrid
 
 struct PostGridView: View {
-  @ObservedObject var model: PostGridViewModel
+  @ObservedObject var model: PostViewModel
   @State private var showingCreatePostPopover = false
   
   var body: some View {
@@ -25,29 +25,27 @@ struct PostGridView: View {
       )
       .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
     }
-    .navigationTitle(model.passion.title)
+    .navigationTitle(model.passionName)
     .toolbar {
       ToolbarItem(placement: .navigationBarTrailing) {
         Button("", systemImage: "plus") {
           showingCreatePostPopover = true
         }
         .sheet(isPresented: $showingCreatePostPopover) {
-          CreatePostPopoverView(model: model)
+          CreatePostView(model: model)
         }
       }
     }
-    .onDisappear {
-      model.save()
+    .onAppear {
+      model.fetchPosts()
     }
   }
 }
 
 #Preview {
   NavigationStack {
-    var model = PostGridViewModel(passion: .example)
-    var post = Post()
-    post.caption = "This is a caption for a post"
-    model.add(post: post)
+    let model = PostViewModel(passionUid: Passion.example.id!, passionName: Passion.example.name)
+    model.createPost(timestamp: Post.example.timestamp, type: Post.example.type, caption: Post.example.caption, images: [UIImage](), completion: nil)
     return PostGridView(model: model)
   }
 }

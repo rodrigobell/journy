@@ -1,12 +1,9 @@
-import Foundation
+import Firebase
+import FirebaseFirestoreSwift
 
-struct Passion: Codable, Identifiable, Hashable {
-  var id = UUID()
-  var title = "New Passion"
-}
-
-extension Passion: Equatable {
-  static func ==(lhs: Passion, rhs: Passion) -> Bool {
-    return lhs.id == rhs.id && lhs.id == rhs.id
-  }
+struct Passion: Identifiable, Decodable, Equatable {
+  @DocumentID var id: String?
+  var timestamp: Timestamp = Timestamp(date: Date())
+  let ownerUid: String
+  var name: String = "New Passion"
 }

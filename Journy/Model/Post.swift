@@ -1,19 +1,15 @@
-import Foundation
+import Firebase
+import FirebaseFirestoreSwift
 
 enum PostType: String, Codable, CaseIterable {
   case photo, text
 }
 
-struct Post: Codable, Identifiable, Hashable {
-  var id = UUID()
+struct Post: Codable, Identifiable, Equatable {
+  @DocumentID var id: String?
+  var timestamp: Timestamp = Timestamp(date: Date())
+  let passionUid: String
   var type = PostType.text
-  var date = Date.now
   var caption = ""
-  var imageData: Data? = nil
-}
-
-extension Post: Equatable {
-  static func ==(lhs: Post, rhs: Post) -> Bool {
-    return lhs.id == rhs.id && lhs.id == rhs.id
-  }
+  var imageUrls = Array<String>()
 }

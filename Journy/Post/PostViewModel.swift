@@ -8,6 +8,7 @@ class PostViewModel: ObservableObject {
   init(passionUid: String, passionName: String) {
     self.passionUid = passionUid
     self.passionName = passionName
+    fetchPosts()
   }
   
   func fetchPosts() {
@@ -23,26 +24,29 @@ class PostViewModel: ObservableObject {
                   caption: String,
                   images: Array<UIImage>,
                   completion: FirestoreCompletion) {
-    ImageService.uploadImages(images: images, type: ImageType.post) { imageUrls in
-      let post = Post(timestamp: timestamp,
-                      passionUid: self.passionUid,
-                      type: type,
-                      caption: caption,
-                      imageUrls: imageUrls)
-      let data = ["timestamp": post.timestamp,
-                  "passionUid": post.passionUid,
-                  "type": post.type.rawValue,
-                  "caption": post.caption,
-                  "imageUrls": post.imageUrls] as [String : Any]
+    var data = ["timestamp": timestamp,
+                "passionUid": self.passionUid,
+                "type": type.rawValue,
+                "caption": caption,
+                "imageUrls": Array<String>()] as [String : Any]
+    if images.isEmpty {
       COLLECTION_POSTS.addDocument(data: data, completion: completion)
-      self.fetchPosts()
+    } else {
+      ImageService.uploadImages(images: images, type: ImageType.post) { imageUrls in
+        data["imageUrls"] = imageUrls
+        COLLECTION_POSTS.addDocument(data: data, completion: completion)
+      }
     }
   }
   
   func delete(post: Post) {
     // TODO: Turn this into an async call
     guard let postUid = post.id else { return }
-    COLLECTION_PASSIONS.document(postUid).delete(completion: nil)
-    fetchPosts()
+    for imageUrl in post.imageUrls {
+      ImageService.deleteImage(imageUrl: imageUrl, type: ImageType.post)
+    }
+    COLLECTION_POSTS.document(postUid).delete(completion: { _ in
+      self.fetchPosts()
+    })
   }
 }

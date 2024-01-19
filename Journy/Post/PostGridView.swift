@@ -36,6 +36,11 @@ struct PostGridView: View {
         }
       }
     }
+    .onChange(of: showingCreatePostPopover, {
+      if !showingCreatePostPopover {
+        model.fetchPosts()
+      }
+    })
     .onAppear {
       model.fetchPosts()
     }

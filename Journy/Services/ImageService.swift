@@ -49,7 +49,7 @@ struct ImageService {
   }
   
   static func deleteImage(imageUrl: String, type: ImageType) {
-    let ref = type.filePath
+    let ref = Storage.storage().reference(forURL: imageUrl)
     ref.delete { error in
       if let error = error {
         print(error)

@@ -9,6 +9,7 @@ class PassionViewModel: ObservableObject {
 
   init(ownerUid uid: String) {
     self.ownerUid = uid
+    fetchPassions()
   }
 
   func fetchPassions() {
@@ -20,13 +21,13 @@ class PassionViewModel: ObservableObject {
   }
 
   func createPassion() {
-    var passion = Passion(ownerUid: ownerUid)
-    passion.name = "New Passion " + String(passions.count + 1)
-    let data = ["timestamp": passion.timestamp,
-                "ownerUid": passion.ownerUid,
-                "name": passion.name] as [String : Any]
-    COLLECTION_PASSIONS.addDocument(data: data)
-    fetchPassions()
+    let name = "New Passion " + String(passions.count + 1)
+    let data = ["timestamp": Timestamp(date: Date.now),
+                "ownerUid": ownerUid,
+                "name": name] as [String : Any]
+    COLLECTION_PASSIONS.addDocument(data: data, completion: { _ in
+      self.fetchPassions()
+    })
   }
 
   func deletePosts(forPassionUid passionUid: String) {
@@ -34,11 +35,11 @@ class PassionViewModel: ObservableObject {
       guard let documents = snapshot?.documents else { return }
       let posts = documents.compactMap({ try? $0.data(as: Post.self) })
       for post in posts {
-        guard let uid = post.id else { return }
+        guard let postUid = post.id else { return }
         for imageUrl in post.imageUrls {
           ImageService.deleteImage(imageUrl: imageUrl, type: ImageType.post)
         }
-        COLLECTION_POSTS.document(uid).delete(completion: nil)
+        COLLECTION_POSTS.document(postUid).delete(completion: nil)
       }
     }
   }
@@ -46,8 +47,9 @@ class PassionViewModel: ObservableObject {
   func delete(passion: Passion) {
     // TODO: Turn this into an async call
     guard let passionUid = passion.id else { return }
-    COLLECTION_PASSIONS.document(passionUid).delete(completion: nil)
+    COLLECTION_PASSIONS.document(passionUid).delete(completion: { _ in
+      self.fetchPassions()
+    })
     deletePosts(forPassionUid: passionUid)
-    fetchPassions()
   }
 }

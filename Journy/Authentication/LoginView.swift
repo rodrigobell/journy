@@ -1,4 +1,5 @@
 import SwiftUI
+import GoogleSignInSwift
 
 struct LoginView: View {
   @State private var email = ""
@@ -9,7 +10,7 @@ struct LoginView: View {
     NavigationView {
       VStack {
         Spacer()
-        
+
         VStack(spacing: 20) {
           CustomTextField(text: $email, placeholder: Text("Email"), imageName: "envelope")
             .padding()
@@ -44,7 +45,7 @@ struct LoginView: View {
         }
         
         Button(action: {
-          model.login(withEmail: email, password: password)
+          model.signIn(withEmail: email, password: password)
         }, label: {
           Text("Sign In")
             .font(.headline)
@@ -54,6 +55,12 @@ struct LoginView: View {
             .clipShape(Capsule())
             .padding()
         })
+        
+        Text("or")
+          .foregroundColor(.white)
+        
+        GoogleSignInButton(action: model.signInWithGoogle)
+          .frame(width: 110)
         
         Spacer()
         
@@ -68,6 +75,7 @@ struct LoginView: View {
                 .font(.system(size: 14, weight: .semibold))
             }.foregroundColor(.white)
           }).padding(.bottom, 16)
+        
       }
       .padding(.top, -44)
       .background(.black)
@@ -75,8 +83,6 @@ struct LoginView: View {
   }
 }
 
-struct LoginView_Previews: PreviewProvider {
-  static var previews: some View {
-    LoginView()
-  }
+#Preview {
+  LoginView().environmentObject(AuthViewModel.shared)
 }

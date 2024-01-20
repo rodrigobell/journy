@@ -5,7 +5,7 @@ import Firebase
 
 struct CreatePostView: View {
   @ObservedObject var model: PostViewModel
-  @State private var caption: String = "test"
+  @State private var caption: String = ""
   @State private var selectedItems = [PhotosPickerItem]()
   @State private var selectedImages = [UIImage]()
   @State private var date = Date.now

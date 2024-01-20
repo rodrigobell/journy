@@ -29,6 +29,8 @@
 		1A14B0262B5892AB00EF44E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14B0252B5892AB00EF44E7 /* ContentView.swift */; };
 		1A14B0282B58C9C200EF44E7 /* User+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14B0272B58C9C200EF44E7 /* User+Extension.swift */; };
 		1A14B02C2B5B0B5B00EF44E7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1A14B02B2B5B0B5B00EF44E7 /* Kingfisher */; };
+		1A14B0312B5B43C000EF44E7 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 1A14B0302B5B43C000EF44E7 /* GoogleSignIn */; };
+		1A14B0332B5B43C000EF44E7 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1A14B0322B5B43C000EF44E7 /* GoogleSignInSwift */; };
 		1A18A05F2ADC62C9007DFE62 /* JournyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18A05E2ADC62C9007DFE62 /* JournyApp.swift */; };
 		1A18A0612ADC62C9007DFE62 /* PassionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18A0602ADC62C9007DFE62 /* PassionListView.swift */; };
 		1A18A0632ADC62CA007DFE62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A18A0622ADC62CA007DFE62 /* Assets.xcassets */; };
@@ -90,6 +92,8 @@
 				1A14AFFB2B5618D300EF44E7 /* FirebaseAnalytics in Frameworks */,
 				1A14B01A2B56204000EF44E7 /* FirebaseStorage in Frameworks */,
 				1A14AFFD2B5618D300EF44E7 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				1A14B0332B5B43C000EF44E7 /* GoogleSignInSwift in Frameworks */,
+				1A14B0312B5B43C000EF44E7 /* GoogleSignIn in Frameworks */,
 				1A14B0032B5618D300EF44E7 /* FirebaseAppCheck in Frameworks */,
 				1A14B0142B561F6000EF44E7 /* FirebaseFirestore in Frameworks */,
 				1A14B0122B561F6000EF44E7 /* FirebaseAuth in Frameworks */,
@@ -262,6 +266,8 @@
 				1A14B0152B561F6000EF44E7 /* FirebaseFirestoreSwift */,
 				1A14B0192B56204000EF44E7 /* FirebaseStorage */,
 				1A14B02B2B5B0B5B00EF44E7 /* Kingfisher */,
+				1A14B0302B5B43C000EF44E7 /* GoogleSignIn */,
+				1A14B0322B5B43C000EF44E7 /* GoogleSignInSwift */,
 			);
 			productName = Journy;
 			productReference = 1A18A05B2ADC62C9007DFE62 /* Journy.app */;
@@ -295,6 +301,7 @@
 				1A4081DA2B3D22A700DB2697 /* XCRemoteSwiftPackageReference "WaterfallGrid" */,
 				1A14AFF92B5618D300EF44E7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				1A14B02A2B5B0B5B00EF44E7 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				1A14B02F2B5B43C000EF44E7 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 1A18A05C2ADC62C9007DFE62 /* Products */;
 			projectDirPath = "";
@@ -578,6 +585,14 @@
 				minimumVersion = 7.10.2;
 			};
 		};
+		1A14B02F2B5B43C000EF44E7 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		1A4081DA2B3D22A700DB2697 /* XCRemoteSwiftPackageReference "WaterfallGrid" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/paololeonardi/WaterfallGrid";
@@ -638,6 +653,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1A14B02A2B5B0B5B00EF44E7 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		1A14B0302B5B43C000EF44E7 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A14B02F2B5B43C000EF44E7 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		1A14B0322B5B43C000EF44E7 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A14B02F2B5B43C000EF44E7 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 		1A4081DB2B3D22A700DB2697 /* WaterfallGrid */ = {
 			isa = XCSwiftPackageProductDependency;

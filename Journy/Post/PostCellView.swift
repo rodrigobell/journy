@@ -3,6 +3,7 @@ import Kingfisher
 
 struct PostCellView: View {
   var post: Post
+  @Binding var numberGridColumns: Int
   
   var body: some View {
     switch post.type {
@@ -34,7 +35,7 @@ struct PostCellView: View {
               }
             }
             .tabViewStyle(PageTabViewStyle())
-            .frame(height: 235)
+            .frame(height: 450 / CGFloat(numberGridColumns))
             .cornerRadius(12)
             .overlay(
               RoundedRectangle(cornerRadius: 12)
@@ -56,6 +57,7 @@ struct PostCellView: View {
         Text(post.caption)
           .font(.title3)
           .fontWeight(.medium)
+          .multilineTextAlignment(.center)
           .padding(22)
           .frame(maxWidth: .infinity, maxHeight: .infinity)
           .overlay(
@@ -81,5 +83,5 @@ struct PostCellView: View {
 }
 
 #Preview {
-  PostCellView(post: .example)
+  PostCellView(post: .example, numberGridColumns: .constant(2))
 }

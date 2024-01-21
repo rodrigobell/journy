@@ -60,7 +60,7 @@ struct LoginView: View {
           .foregroundColor(.white)
         
         GoogleSignInButton(action: model.signInWithGoogle)
-          .frame(width: 110)
+          .frame(width: 110, height: 50)
         
         Spacer()
         

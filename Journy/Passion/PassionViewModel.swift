@@ -29,6 +29,11 @@ class PassionViewModel: ObservableObject {
       self.fetchPassions()
     })
   }
+  
+  func update(passion: Passion, name: String) {
+    guard let passionUid = passion.id else { return }
+    COLLECTION_PASSIONS.document(passionUid).updateData(["name": name])
+  }
 
   func deletePosts(forPassionUid passionUid: String) {
     COLLECTION_POSTS.whereField("passionUid", isEqualTo: passionUid).getDocuments { snapshot, _ in
@@ -45,7 +50,7 @@ class PassionViewModel: ObservableObject {
   }
 
   func delete(passion: Passion) {
-    // TODO: Turn this into an async call
+    // TODO: Turn this into an async call so multiple photos upload at the same time
     guard let passionUid = passion.id else { return }
     COLLECTION_PASSIONS.document(passionUid).delete(completion: { _ in
       self.fetchPassions()

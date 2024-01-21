@@ -29,7 +29,7 @@ struct PassionRowView: View {
             isDisabled = false
             isFocused = true
           } label: {
-            Text("Change name")
+            Text("Rename")
           }
           Button {
             model.delete(passion: passion)
@@ -40,6 +40,7 @@ struct PassionRowView: View {
         .onChange(of: isFocused) { isFocused in
           if !isFocused {
             isDisabled = true
+            model.update(passion: passion, name: passion.name)
           }
         }
     }

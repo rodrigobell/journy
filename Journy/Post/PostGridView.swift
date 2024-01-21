@@ -2,13 +2,16 @@ import SwiftUI
 import WaterfallGrid
 
 struct PostGridView: View {
+  let kMinNumberGridColumns = 1
+  let kMaxNumberGridColumns = 2
   @ObservedObject var model: PostViewModel
   @State private var showingCreatePostPopover = false
+  @State private var numberGridColumns = 2
   
   var body: some View {
     ScrollView(.vertical, showsIndicators: false) {
       WaterfallGrid(model.posts) { post in
-        PostCellView(post: post)
+        PostCellView(post: post, numberGridColumns: $numberGridColumns)
           .fixedSize(horizontal: false, vertical: true)
           .contextMenu {
             Button {
@@ -19,8 +22,8 @@ struct PostGridView: View {
           }
       }
       .gridStyle(
-        columnsInPortrait: 2,
-        columnsInLandscape: 3,
+        columnsInPortrait: numberGridColumns,
+        columnsInLandscape: numberGridColumns,
         spacing: 8
       )
       .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
@@ -28,11 +31,23 @@ struct PostGridView: View {
     .navigationTitle(model.passionName)
     .toolbar {
       ToolbarItem(placement: .navigationBarTrailing) {
-        Button("", systemImage: "plus") {
-          showingCreatePostPopover = true
-        }
-        .sheet(isPresented: $showingCreatePostPopover) {
-          CreatePostView(model: model)
+        HStack {
+          Button {
+            if numberGridColumns < kMaxNumberGridColumns {
+              numberGridColumns += 1
+            } else {
+              numberGridColumns = kMinNumberGridColumns
+            }
+          } label: {
+            Text(String(numberGridColumns))
+              .font(.title3)
+          }
+          Button("", systemImage: "plus") {
+            showingCreatePostPopover = true
+          }
+          .sheet(isPresented: $showingCreatePostPopover) {
+            CreatePostView(model: model)
+          }
         }
       }
     }

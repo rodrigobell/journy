@@ -11,9 +11,19 @@ struct PassionListView: View {
     }
     .navigationTitle("My Passions")
     .toolbar {
+      ToolbarItem(placement: .navigationBarLeading) {
+        Text(String(model.passions.count) + " passions | " + String(model.postCount) + " entries")
+      }
       ToolbarItem(placement: .navigationBarTrailing) {
-        Button(action: { model.createPassion() }) {
-          Label("", systemImage: "plus")
+        HStack {
+          Button(action: { model.createPassion() }) {
+            Label("", systemImage: "plus")
+          }
+          NavigationLink {
+            SettingsView()
+          } label: {
+            Label("", systemImage: "gearshape")
+          }
         }
       }
     }

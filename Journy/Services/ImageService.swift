@@ -18,12 +18,13 @@ enum ImageType {
 
 struct ImageService {
   static func uploadImages(images: [UIImage], type: ImageType, completion: @escaping(Array<String>) -> Void) {
-    // TODO: Upload in parallel
-    var imageUrls = [String]()
-    for image in images {
+    var imageUrls = [String](repeating: "", count: images.count)
+    var uploadedImagesCount = 0
+    for (i, image) in images.enumerated() {
       uploadImage(image: image, type: type) { imageUrl in
-        imageUrls.append(imageUrl)
-        if imageUrls.count == images.count {
+        imageUrls[i] = imageUrl
+        uploadedImagesCount += 1
+        if uploadedImagesCount == images.count {
           completion(imageUrls)
         }
       }

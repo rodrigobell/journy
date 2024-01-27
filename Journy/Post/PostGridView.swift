@@ -24,7 +24,7 @@ struct PostGridView: View {
       .gridStyle(
         columnsInPortrait: numberGridColumns,
         columnsInLandscape: numberGridColumns,
-        spacing: 8
+        spacing: 20
       )
       .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
     }
@@ -39,7 +39,7 @@ struct PostGridView: View {
               numberGridColumns = kMinNumberGridColumns
             }
           } label: {
-            Text(String(numberGridColumns))
+            Text(String(repeating: "| ", count: numberGridColumns))
               .font(.title3)
           }
           Button("", systemImage: "plus") {

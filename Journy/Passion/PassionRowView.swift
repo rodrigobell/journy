@@ -37,6 +37,9 @@ struct PassionRowView: View {
             Text("Delete")
           }
         }
+        .onChange(of: passion.name, {
+          model.update(passion: passion, name: passion.name)
+        })
         .onChange(of: isFocused) { isFocused in
           if !isFocused {
             isDisabled = true
@@ -45,7 +48,6 @@ struct PassionRowView: View {
         }
     }
   }
-    
 }
 
 #Preview {

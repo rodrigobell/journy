@@ -103,6 +103,17 @@ class AuthViewModel: ObservableObject {
     try? Auth.auth().signOut()
   }
   
+  func deleteAccount() {
+    userSession?.delete { error in
+      if let error = error {
+        print("Failed to delete user account with error \(error.localizedDescription)")
+      } else {
+        print("Deleted user account")
+        self.signOut()
+      }
+    }
+  }
+  
   func resetPassword(withEmail email: String) {
     Auth.auth().sendPasswordReset(withEmail: email) { error in
       if let error = error {

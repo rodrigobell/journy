@@ -53,26 +53,10 @@ class PassionViewModel: ObservableObject {
     COLLECTION_PASSIONS.document(passionUid).updateData(["name": name])
   }
 
-  func deletePosts(forPassionUid passionUid: String) {
-    COLLECTION_POSTS.whereField("passionUid", isEqualTo: passionUid).getDocuments { snapshot, _ in
-      guard let documents = snapshot?.documents else { return }
-      let posts = documents.compactMap({ try? $0.data(as: Post.self) })
-      for post in posts {
-        guard let postUid = post.id else { return }
-        for imageUrl in post.imageUrls {
-          ImageService.deleteImage(imageUrl: imageUrl, type: ImageType.post)
-        }
-        COLLECTION_POSTS.document(postUid).delete(completion: nil)
-      }
-    }
-  }
-
   func delete(passion: Passion) {
-    // TODO: Turn this into an async call so multiple photos upload at the same time
     guard let passionUid = passion.id else { return }
-    COLLECTION_PASSIONS.document(passionUid).delete(completion: { _ in
+    FirestoreManager.shared.deletePassion(uid: passionUid, completion: { _ in
       self.fetchPassions()
     })
-    deletePosts(forPassionUid: passionUid)
   }
 }

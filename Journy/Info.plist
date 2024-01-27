@@ -15,5 +15,7 @@
 	</array>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Upload photos to add to journal entries</string>
 </dict>
 </plist>

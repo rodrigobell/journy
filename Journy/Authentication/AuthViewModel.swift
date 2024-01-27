@@ -1,18 +1,18 @@
-import SwiftUI
-import FirebaseAuth
 import FirebaseCore
-import GoogleSignIn
+import FirebaseAuth
 
-class AuthViewModel: ObservableObject {
+class AuthViewModel: NSObject, ObservableObject {
   @Published var userSession: FirebaseAuth.User?
   @Published var currentUser: User?
   @Published var didSendResetPasswordLink = false
+  var appleNonce: String?
   
   static let shared = AuthViewModel()
   
-  init() {
+  override init() {
+    super.init()
     userSession = Auth.auth().currentUser
-    fetchUser()
+    self.fetchUser()
   }
   
   func fetchUser() {
@@ -47,41 +47,6 @@ class AuthViewModel: ObservableObject {
     }
   }
   
-  func signInWithGoogle() {
-    guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-    let configuration = GIDConfiguration(clientID: clientID)
-    GIDSignIn.sharedInstance.configuration = configuration
-
-    guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-    guard let rootViewController = windowScene.windows.first?.rootViewController else { return }
-    
-    GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController) { signResult, error in
-      if let error = error {
-        print("DEBUG: Google sign in failed \(error.localizedDescription)")
-        return
-      }
-      
-      guard let user = signResult?.user,
-            let idToken = user.idToken else { return }
-      
-      let accessToken = user.accessToken
-      
-      let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString, accessToken: accessToken.tokenString)
-      Auth.auth().signIn(with: credential) { result, error in
-        if let error = error {
-          print(error.localizedDescription)
-        }
-        guard let user = result?.user else { return }
-        let data = ["email": user.email]
-        COLLECTION_USERS.document(user.uid).setData(data) { _ in
-          print("Successfully uploaded user data...")
-          self.userSession = user
-          self.fetchUser()
-        }
-      }
-    }
-  }
-  
   func register(withEmail email: String, password: String) {
     Auth.auth().createUser(withEmail: email, password: password) { result, error in
       if let error = error {
@@ -100,18 +65,23 @@ class AuthViewModel: ObservableObject {
   
   func signOut() {
     self.userSession = nil
+    self.currentUser = nil
+    self.appleNonce = nil
     try? Auth.auth().signOut()
   }
   
   func deleteAccount() {
-    userSession?.delete { error in
-      if let error = error {
-        print("Failed to delete user account with error \(error.localizedDescription)")
-      } else {
-        print("Deleted user account")
-        self.signOut()
+    guard let uid = userSession?.uid else { return }
+    FirestoreManager.shared.deleteUser(uid: uid, completion: { _ in
+      self.userSession?.delete { error in
+        if let error = error {
+          print("Failed to delete user account with error \(error.localizedDescription)")
+        } else {
+          print("Deleted user account")
+          self.signOut()
+        }
       }
-    }
+    })
   }
   
   func resetPassword(withEmail email: String) {

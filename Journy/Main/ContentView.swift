@@ -6,7 +6,7 @@ struct ContentView: View {
   
   var body: some View {
     if authViewModel.userSession == nil {
-      LoginView()
+      SignInView()
     } else {
       if let user = authViewModel.currentUser {
         NavigationView {

@@ -23,7 +23,7 @@
 		1A14B01A2B56204000EF44E7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1A14B0192B56204000EF44E7 /* FirebaseStorage */; };
 		1A14B01D2B5621F300EF44E7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14B01C2B5621F300EF44E7 /* CustomTextField.swift */; };
 		1A14B01F2B56222800EF44E7 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14B01E2B56222800EF44E7 /* CustomSecureField.swift */; };
-		1A14B0212B5890B900EF44E7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14B0202B5890B900EF44E7 /* LoginView.swift */; };
+		1A14B0212B5890B900EF44E7 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14B0202B5890B900EF44E7 /* SignInView.swift */; };
 		1A14B0232B5890DE00EF44E7 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14B0222B5890DE00EF44E7 /* ResetPasswordView.swift */; };
 		1A14B0262B5892AB00EF44E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14B0252B5892AB00EF44E7 /* ContentView.swift */; };
 		1A14B02C2B5B0B5B00EF44E7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1A14B02B2B5B0B5B00EF44E7 /* Kingfisher */; };
@@ -45,6 +45,9 @@
 		1A907EC82B3E9ADD003B9BE1 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A907EC72B3E9ADD003B9BE1 /* CreatePostView.swift */; };
 		1A907ECE2B477173003B9BE1 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A907ECD2B477173003B9BE1 /* Array+Extension.swift */; };
 		1AB1F2512B6497BE00C28F28 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB1F2502B6497BE00C28F28 /* SettingsView.swift */; };
+		1AB1F2532B64A41600C28F28 /* AuthViewModel+AppleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB1F2522B64A41600C28F28 /* AuthViewModel+AppleSignIn.swift */; };
+		1AB1F2552B64A42600C28F28 /* AuthViewModel+GoogleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB1F2542B64A42600C28F28 /* AuthViewModel+GoogleSignIn.swift */; };
+		1ACA65A22B64D19700A62DD4 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACA65A12B64D19700A62DD4 /* FirestoreManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,7 +59,7 @@
 		1A14B0172B561FF400EF44E7 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		1A14B01C2B5621F300EF44E7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		1A14B01E2B56222800EF44E7 /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
-		1A14B0202B5890B900EF44E7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		1A14B0202B5890B900EF44E7 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		1A14B0222B5890DE00EF44E7 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		1A14B0252B5892AB00EF44E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1A14B0342B5F882600EF44E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -76,6 +79,9 @@
 		1A907ECB2B40FAF9003B9BE1 /* Journy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Journy.entitlements; sourceTree = "<group>"; };
 		1A907ECD2B477173003B9BE1 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		1AB1F2502B6497BE00C28F28 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1AB1F2522B64A41600C28F28 /* AuthViewModel+AppleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthViewModel+AppleSignIn.swift"; sourceTree = "<group>"; };
+		1AB1F2542B64A42600C28F28 /* AuthViewModel+GoogleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthViewModel+GoogleSignIn.swift"; sourceTree = "<group>"; };
+		1ACA65A12B64D19700A62DD4 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,10 +120,12 @@
 		1A14B0092B561D8200EF44E7 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				1A14B0202B5890B900EF44E7 /* LoginView.swift */,
+				1A14B0202B5890B900EF44E7 /* SignInView.swift */,
 				1A14B00A2B561D9D00EF44E7 /* RegistrationView.swift */,
 				1A14B0222B5890DE00EF44E7 /* ResetPasswordView.swift */,
 				1A14B00C2B561DD000EF44E7 /* AuthViewModel.swift */,
+				1AB1F2522B64A41600C28F28 /* AuthViewModel+AppleSignIn.swift */,
+				1AB1F2542B64A42600C28F28 /* AuthViewModel+GoogleSignIn.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -151,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				1A14B0172B561FF400EF44E7 /* ImageService.swift */,
+				1ACA65A12B64D19700A62DD4 /* FirestoreManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -331,13 +340,16 @@
 				1A907EC82B3E9ADD003B9BE1 /* CreatePostView.swift in Sources */,
 				1A14B01D2B5621F300EF44E7 /* CustomTextField.swift in Sources */,
 				1A14B0182B561FF400EF44E7 /* ImageService.swift in Sources */,
+				1AB1F2532B64A41600C28F28 /* AuthViewModel+AppleSignIn.swift in Sources */,
 				1A14B01F2B56222800EF44E7 /* CustomSecureField.swift in Sources */,
-				1A14B0212B5890B900EF44E7 /* LoginView.swift in Sources */,
+				1A14B0212B5890B900EF44E7 /* SignInView.swift in Sources */,
 				1A14B0062B561A8700EF44E7 /* FirebaseConstants.swift in Sources */,
+				1AB1F2552B64A42600C28F28 /* AuthViewModel+GoogleSignIn.swift in Sources */,
 				1A18A0612ADC62C9007DFE62 /* PassionListView.swift in Sources */,
 				1A14B00D2B561DD000EF44E7 /* AuthViewModel.swift in Sources */,
 				1A907ECE2B477173003B9BE1 /* Array+Extension.swift in Sources */,
 				1A14B00B2B561D9D00EF44E7 /* RegistrationView.swift in Sources */,
+				1ACA65A22B64D19700A62DD4 /* FirestoreManager.swift in Sources */,
 				1A907EC02B3E03BA003B9BE1 /* PostViewModel.swift in Sources */,
 				1A18A0732ADC69EE007DFE62 /* PassionRowView.swift in Sources */,
 				1A4081DE2B3D22CB00DB2697 /* PostGridView.swift in Sources */,

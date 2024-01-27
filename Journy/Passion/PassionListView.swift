@@ -2,7 +2,6 @@ import SwiftUI
 
 struct PassionListView: View {
   @ObservedObject var model: PassionViewModel
-    
   var body: some View {
     List {
       ForEach($model.passions) { passion in

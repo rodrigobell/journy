@@ -40,12 +40,7 @@ class PostViewModel: ObservableObject {
   }
   
   func delete(post: Post) {
-    // TODO: Turn this into an async call
-    guard let postUid = post.id else { return }
-    for imageUrl in post.imageUrls {
-      ImageService.deleteImage(imageUrl: imageUrl, type: ImageType.post)
-    }
-    COLLECTION_POSTS.document(postUid).delete(completion: { _ in
+    FirestoreManager.shared.deletePost(post: post, completion: { _ in
       self.fetchPosts()
     })
   }
